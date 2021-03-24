@@ -67,6 +67,10 @@ func newWalkFunc(ix *bleve.Index) filepath.WalkFunc {
 			return nil
 		}
 
+		if filepath.Ext(path) != ".pdf" {
+			return nil
+		}
+
 		text, err := GetPdf(path)
 		if err != nil {
 			return err
